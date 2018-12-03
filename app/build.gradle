@@ -134,7 +134,7 @@ android {
     productFlavors {
         prod {
 
-			applicationId 'fr.free.nrw.commons'
+			applicationId 'fr.free.nrw.commons.local'
 
             buildConfigField "String", "WIKIMEDIA_API_POTD", "\"https://commons.wikimedia.org/w/api.php?action=featuredfeed&feed=potd&feedformat=rss&language=en\""
             buildConfigField "String", "WIKIMEDIA_API_HOST", "\"https://commons.wikimedia.org/w/api.php\""
@@ -150,14 +150,24 @@ android {
             buildConfigField "String", "SIGNUP_SUCCESS_REDIRECTION_URL", "\"https://commons.m.wikimedia.org/w/index.php?title=Main_Page&welcome=yes\""
             buildConfigField "String", "FORGOT_PASSWORD_URL", "\"https://commons.wikimedia.org/wiki/Special:PasswordReset\""
 
-            buildConfigField "String", "ACCOUNT_TYPE", "\"fr.free.nrw.commons\""
-            buildConfigField "String", "CONTRIBUTION_AUTHORITY", "\"fr.free.nrw.commons.contributions.contentprovider\""
-            buildConfigField "String", "MODIFICATION_AUTHORITY", "\"fr.free.nrw.commons.modifications.contentprovider\""
-            buildConfigField "String", "CATEGORY_AUTHORITY", "\"fr.free.nrw.commons.categories.contentprovider\""
-            buildConfigField "String", "RECENT_SEARCH_AUTHORITY", "\"fr.free.nrw.commons.explore.recentsearches.contentprovider\""
-            buildConfigField "String", "BOOKMARK_AUTHORITY", "\"fr.free.nrw.commons.bookmarks.contentprovider\""
-            buildConfigField "String", "BOOKMARK_LOCATIONS_AUTHORITY", "\"fr.free.nrw.commons.bookmarks.locations.contentprovider\""
-
+            def accountTypeValue = applicationId
+            buildConfigField "String", "ACCOUNT_TYPE", "\"${accountTypeValue}\""
+            def contributionAuthorityValue = applicationId + ".contributions.contentprovider"
+            buildConfigField "String", "CONTRIBUTION_AUTHORITY", "\"${contributionAuthorityValue}\""
+            def modificationAuthorityValue = applicationId + ".modifications.contentprovider"
+            buildConfigField "String", "MODIFICATION_AUTHORITY", "\"${modificationAuthorityValue}\""
+            def categoryAuthorityValue = applicationId + ".categories.contentprovider"
+            buildConfigField "String", "CATEGORY_AUTHORITY", "\"${categoryAuthorityValue}\""
+            def recentSearchAuthorityValue = applicationId + ".explore.recentsearches.contentprovider"
+            buildConfigField "String", "RECENT_SEARCH_AUTHORITY", "\"${recentSearchAuthorityValue}\""
+            def bookmarkAuthorityValue = applicationId + ".bookmarks.contentprovider"
+            buildConfigField "String", "BOOKMARK_AUTHORITY", "\"${bookmarkAuthorityValue}\""
+            def bookmarkLocationsAuthorityValue = applicationId + ".bookmarks.locations.contentprovider"
+            buildConfigField "String", "BOOKMARK_LOCATIONS_AUTHORITY", "\"${bookmarkLocationsAuthorityValue}\""
+            manifestPlaceholders = [accountType: accountTypeValue, contributionAuthority: contributionAuthorityValue,
+                                    modificationAuthority: modificationAuthorityValue, categoryAuthority: categoryAuthorityValue,
+                                    recentSearchAuthority: recentSearchAuthorityValue, bookmarkAuthority: bookmarkAuthorityValue,
+                                    bookmarkLocationsAuthority: bookmarkLocationsAuthorityValue]
             dimension 'tier'
         }
 

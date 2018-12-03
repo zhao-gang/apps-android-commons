@@ -167,40 +167,40 @@
         </provider>
         <provider
             android:name=".contributions.ContributionsContentProvider"
-            android:authorities="${applicationId}.contributions.contentprovider"
+            android:authorities="${contributionAuthority}"
             android:exported="false"
             android:label="@string/provider_contributions"
             android:syncable="true" />
         <provider
             android:name=".modifications.ModificationsContentProvider"
-            android:authorities="${applicationId}.modifications.contentprovider"
+            android:authorities="${modificationAuthority}"
             android:exported="false"
             android:label="@string/provider_modifications"
             android:syncable="true" />
         <provider
             android:name=".category.CategoryContentProvider"
-            android:authorities="${applicationId}.categories.contentprovider"
+            android:authorities="${categoryAuthority}"
             android:exported="false"
             android:label="@string/provider_categories"
             android:syncable="false" />
 
         <provider
             android:name=".explore.recentsearches.RecentSearchesContentProvider"
-            android:authorities="${applicationId}.explore.recentsearches.contentprovider"
+            android:authorities="${recentSearchAuthority}"
             android:exported="false"
             android:label="@string/provider_searches"
             android:syncable="false" />
 
         <provider
             android:name=".bookmarks.pictures.BookmarkPicturesContentProvider"
-            android:authorities="${applicationId}.bookmarks.contentprovider"
+            android:authorities="${bookmarkAuthority}"
             android:exported="false"
             android:label="@string/provider_bookmarks"
             android:syncable="false" />
 
         <provider
             android:name=".bookmarks.locations.BookmarkLocationsContentProvider"
-            android:authorities="${applicationId}.bookmarks.locations.contentprovider"
+            android:authorities="${bookmarkLocationsAuthority}"
             android:exported="false"
             android:label="@string/provider_bookmarks_location"
             android:syncable="false" />
